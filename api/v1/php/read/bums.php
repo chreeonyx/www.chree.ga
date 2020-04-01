@@ -43,13 +43,14 @@ curl_setopt_array($curl, array(
 $results = json_decode(curl_exec($curl),true);
 //$data["results"] = $results;
 if($type == 'county') {
-    $data["CountyList"] = $results['CountyList'];
-    $x=0; foreach($data['CountyList'] as $county) {
+	$counties = array();
+    $CountyList = $results['CountyList'];
+    $x=0; foreach($CountyList as $county) {
     	//$data['AreaName'] = $data['CountyList'][$x]['AreaName'];
-    	//$data['UnEmpCount'] = $UnEmpCount = $data['CountyList'][$x]['UnEmpCount'];
-    	//$data['UnEmpRate'] = $UnEmpRate = $data['CountyList'][$x]['UnEmpRate'];
+    	$data['UnEmpCount'] = $UnEmpCount = $CountyList[$x]['UnEmpCount'];
+    	$data['UnEmpRate'] = $UnEmpRate = $CountyList[$x]['UnEmpRate'];
     	//$data['county'][$AreaName];
-    	$data['counties'][$x] = $county['AreaName'].' :busts_in_silhouette: '.$UnEmpCount.' ('.$UnEmpRate.'%)';
+    	$counties[$x] = $county['AreaName'].' :busts_in_silhouette: '.$UnEmpCount.' ('.$UnEmpRate.'%)';
     	$data['ep1'] = $ep[1];
         if($county['AreaName'] === urldecode($ep[2])) { $data['response'] = "*BROKE* *MOFOS* @ ".$county['AreaName'].':'.' :busts_in_silhouette: '.$UnEmpCount.' ('.$UnEmpRate.'%)'; }
     	$x++;
@@ -67,6 +68,10 @@ if ($err) {
     $data["epc"] = $epc;
     //$data["StateList"] = $results['StateList'];
     $data["url"] = $url;
+    if($type === 'county') { 
+        $data['CountiesData'] = $counties; 
+        $data['CountyList'] = $CountyList; 
+	}
 }
 function search($v,$array) {
 	$item = null;
