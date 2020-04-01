@@ -1,0 +1,11 @@
+README
+
+_play fight: display commands |
+_play fight/attack: attack random player |
+_play fight/attack/player: normal attack player |
+_play fight/attack/player/magic: special attack player |
+_play fight/defend: half damage any attack |
+_play fight/defend/player: no damage from player |
+_play fight/defend/player/magic: half special damage from player |
+
+_read me/fight display commands |

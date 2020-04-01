@@ -1,0 +1,7 @@
+websockets
+tomlkit
+aiohttp
+beautifulsoup4
+wikipedia
+aiohht_socks
+pytz
