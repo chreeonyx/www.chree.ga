@@ -1,4 +1,4 @@
-# World Chree
+# World 🌳 Chree
 The blueprint for planting the seeds of creation.
 
 ## Credits 
